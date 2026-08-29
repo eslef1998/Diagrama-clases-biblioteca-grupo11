@@ -1,5 +1,3 @@
-# Diagrama-clases-biblioteca-grupo11
-
 # 📚 Diagrama de Clases UML — Sistema de Biblioteca
 
 ## 📌 Información del Proyecto
@@ -36,7 +34,6 @@ Diseñar un diagrama UML que permita mostrar de manera clara cómo está organiz
 
 ![Diagrama de Clases UML](image-1.png)
 
-> *Nota: Asegúrate de guardar la imagen corregida con el nombre `diagrama.png` en la raíz del repositorio.*
 
 ---
 
@@ -67,7 +64,7 @@ La decisión de separar `Préstamo` como clase independiente responde al **Princ
 
 ## 🔗 Enlaces del Proyecto
 
-- 🎨 **Diagrama en vivo (Lucidchart / draw.io):** 
+- 🎨 **Diagrama en vivo (Lucidchart / draw.io):** https://app.diagrams.net/#G1DbrF8UaT20-L7SLSYhvbyGCb8Qr-kNjr#%7B%22pageId%22%3A%22P24jo5nsiwFDoYnhvOSi%22%7D 
 - 🎥 **Video Explicativo (YouTube / Drive):**  https://drive.google.com/file/d/1RNs-FG-1aFJ2R4dwy1Xq6K0Fl36Z6vaL/view 
 
 ---
