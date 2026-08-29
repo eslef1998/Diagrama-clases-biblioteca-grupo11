@@ -34,7 +34,7 @@ Diseñar un diagrama UML que permita mostrar de manera clara cómo está organiz
 
 ## 📐 Diagrama de Clases UML
 
-![Diagrama de Clases UML](diagrama.png)
+![Diagrama de Clases UML](image-1.png)
 
 > *Nota: Asegúrate de guardar la imagen corregida con el nombre `diagrama.png` en la raíz del repositorio.*
 
