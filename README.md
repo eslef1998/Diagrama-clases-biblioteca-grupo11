@@ -31,8 +31,7 @@ Diseñar un diagrama UML que permita mostrar de manera clara cómo está organiz
 ---
 
 ##  Diagrama de Clases UML
-
-![Diagrama de Clases UML](<EA1. Planteando el diagrama de clase UML.drawio-1.png>)
+![Diagrama de clases UML](<EA1. Planteando el diagrama de clase UML.drawio-1.png>)
 
 
 ---
