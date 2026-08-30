@@ -32,7 +32,7 @@ Diseñar un diagrama UML que permita mostrar de manera clara cómo está organiz
 
 ##  Diagrama de Clases UML
 ![Diagrama de clases UML](<EA1. Planteando el diagrama de clase UML.drawio-1.png>)
-
+ 
 
 ---
 
@@ -72,3 +72,4 @@ La decisión de separar `Préstamo` como clase independiente responde al **Princ
 
 - Con el desarrollo de este trabajo pudimos comprender de una manera práctica cómo se estructura y organiza la información antes de llevarla a un programa. Al realizar el diagrama UML del sistema de biblioteca, se logró identificar la función de cada clase y entender cómo sus relaciones permiten representar situaciones reales.
 - Es clave destacar la capacidad del diagrama de clases para integrar una mirada sistémica sobre procesos complejos. Este modelado visual facilita profesionalmente la resolución de problemas y la creación de soluciones tecnológicas escalables y mantenibles en el tiempo.
+- Todo este ejercicio demostró el valor práctico de planificar la arquitectura de software y aplicar los principios de diseño (como SOLID) antes de iniciar a escribir las primeras líneas de código. notar como actos tan simples como el de separar la lógica de un proyecto evita enredos técnicos, me hizo entender también que el modelado previo no es un simple trámite, si no la clave para construir un sistema ordenado y escalable en el futuro.
