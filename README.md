@@ -1,75 +1,139 @@
-#  Diagrama de Clases UML — Sistema de Biblioteca
+# Sistema de Gestión de Biblioteca
 
-##  Información del Proyecto
-- **Institución:** Institución Universitaria Digital de Antioquia
-- **Asignatura:** Orientación Orientada a Objetos Avanzada / POO
-- **Docente:** Boris Alberto Salleg
-- **Integrantes:**
-  - Luisa Fernanda García Alvarez
-  - Natalia Andrea Amaya García
-  - Leandro Marín Parra
+## Proyecto académico
+
+Este proyecto fue desarrollado como parte de la asignatura de Programación Orientada a Objetos, dentro del programa de Tecnología en Desarrollo de Software de la Institución Universitaria Digital de Antioquia, en Medellín. Su objetivo principal fue aplicar los conceptos fundamentales de modelado orientado a objetos mediante la creación de un sistema de biblioteca con clases, atributos, métodos y relaciones entre entidades.
 
 ---
 
-##  Introducción
-Este trabajo nace de la necesidad de entender, de manera práctica, cómo se organiza la información antes de convertirla en un programa. Para lograrlo, elegimos un sistema de bibliotecas con sus libros, sus autores y los préstamos que se hacen a los usuarios.
+## Descripción general
 
-La idea principal fue representar, a través de un diagrama de clases, cómo se relacionan estos elementos entre sí: qué información maneja cada uno, qué hace cada parte del sistema y cómo se conectan unas a otras. Este ejercicio nos permitió aplicar de forma sencilla algunos principios importantes de la programación orientada a objetos, como organizar bien la información, evitar que las partes del sistema dependan demasiado unas de otras y dejar todo diseñado de manera clara para que, si en un futuro se requiere ampliar o modificar, sea fácil de hacer.
+El sistema simula una biblioteca básica en la que se gestionan libros, autores, usuarios y préstamos. A través de la implementación en Java, se representa el comportamiento de un catálogo bibliográfico donde un usuario puede solicitar un libro y cada material puede estar disponible o no según su estado.
 
----
+El proyecto permite evidenciar en la práctica conceptos como:
 
-##  Objetivos
-
-### Objetivo General
-Diseñar un diagrama UML que permita mostrar de manera clara cómo está organizado y cómo funciona un sistema de biblioteca, teniendo en cuenta las características principales de la programación orientada a objetos (abstracción, encapsulamiento, herencia y polimorfismo).
-
-### Objetivos Específicos
-- Identificar las clases, los datos y las acciones necesarias para representar el sistema de biblioteca.
-- Definir cómo se relacionan las diferentes clases de acuerdo con la función que cumple cada una dentro del sistema.
-- Explicar y registrar el proceso de creación del diagrama de manera clara, trabajando de forma colaborativa.
+- Encapsulamiento
+- Abstracción
+- Herencia
+- Polimorfismo
+- Asociación
+- Agregación
+- Composición
 
 ---
 
-##  Diagrama de Clases UML
+## Objetivo del proyecto
+
+### Objetivo general
+Diseñar e implementar un sistema de biblioteca orientado a objetos que represente correctamente la relación entre sus entidades principales y demuestre el uso de buenas prácticas de programación.
+
+### Objetivos específicos
+- Identificar las entidades del dominio del problema.
+- Definir atributos y operaciones relevantes para cada clase.
+- Establecer relaciones entre clases con base en la lógica del sistema.
+- Aplicar la programación orientada a objetos en Java.
+- Validar el funcionamiento del sistema mediante la ejecución del programa principal.
+
+---
+
+## Entidades del sistema
+
+### Usuario
+Representa a la persona que puede solicitar libros prestados.
+
+### Autor
+Contiene la información del autor de un libro y mantiene relación con sus obras.
+
+### Libro
+Es la clase base que representa un recurso bibliográfico físico.
+
+### LibroDigital
+Es una extensión de `Libro` que representa un material digital con propiedades adicionales como formato y tamaño.
+
+### Prestamo
+Registra la relación entre un usuario y el libro que fue prestado, así como la fecha de préstamo y devolución.
+
+---
+
+## Diagrama de clases UML
+
 ![Diagrama de clases UML](<EA1. Planteando el diagrama de clase UML.drawio-1.png>)
- 
 
 ---
 
-##  Arquitectura y Decisiones de Diseño
+## Arquitectura y diseño
 
-### 1. Descripción de Clases Identificadas
-El sistema modela una biblioteca a partir de cinco clases principales: **Usuario, Préstamo, Libro, LibroDigital y Autor**. Cada una encapsula sus atributos como privados y expone su comportamiento únicamente a través de métodos públicos, cumpliendo el principio de **encapsulamiento**.
+El diseño del sistema se basa en la separación de responsabilidades y en la organización lógica de cada entidad. Cada clase encapsula sus datos y expone solo los métodos necesarios para interactuar con otras partes del sistema.
 
-- **Usuario:** Representa a la persona que solicita libros en préstamo.
-- **Libro:** Representa el material físico disponible en el catálogo.
-- **LibroDigital:** Especialización para recursos electrónicos.
-- **Autor:** Almacena la información de quien escribió cada obra.
-- **Préstamo:** Articula la operación central del sistema, vinculando a un usuario con un libro durante un periodo determinado.
+### Relación entre clases
+- `Usuario` realiza `Prestamo`.
+- `Prestamo` está relacionado con un `Libro`.
+- `Autor` agrega varios `Libro`.
+- `LibroDigital` hereda de `Libro`.
 
-La decisión de separar `Préstamo` como clase independiente responde al **Principio de Responsabilidad Única (SRP)**: cada clase se encarga exclusivamente de su propio dominio de información y comportamiento, sin mezclar la lógica de disponibilidad de un libro con la lógica temporal de un préstamo.
-
-### 2. Justificación de Relaciones
-- **Asociación (Usuario - Préstamo):** Un usuario puede realizar varios préstamos a lo largo del tiempo (`1` a `0..*`), pero ambas clases tienen existencia independiente entre sí; un usuario sigue existiendo aunque no tenga préstamos activos.
-- **Composición (Préstamo - Libro):** Se modeló como composición porque un préstamo no tiene sentido sin el libro que referencia (dependencia fuerte del todo hacia su parte `Libro`, representada con el rombo relleno).
-- **Agregación (Autor - Libro):** Un autor puede agregar varios libros que ha escrito (`1` a `0..*`), pero la relación es débil: si se elimina un autor del sistema, los libros pueden seguir existiendo en el catálogo.
-- **Herencia y Polimorfismo (Libro - LibroDigital):** `LibroDigital` hereda de `Libro` sus atributos (`titulo`, `disponible`) y sobrescribe el método `prestar()` para reflejar un comportamiento distinto: un libro físico bloquea su disponibilidad al prestarse, mientras que un libro digital genera una copia de acceso temporal sin agotar existencias.
-
-### 3. Cohesión, Acoplamiento y Principios SOLID
-- **Alta Cohesión:** Cada clase agrupa únicamente los atributos y métodos relacionados con su responsabilidad.
-- **Bajo Acoplamiento y OCP (Open/Closed Principle):** La clase `Préstamo` puede componerse de cualquier subtipo de `Libro` sin conocer sus detalles internos. El sistema queda abierto a extensiones futuras (por ejemplo, `LibroAudio`) sin necesidad de modificar el código existente.
+### Principios de diseño aplicados
+- **Encapsulamiento:** los atributos de cada clase son privados y se accede a ellos mediante métodos.
+- **Herencia:** `LibroDigital` reutiliza la estructura de `Libro` y agrega características específicas.
+- **Polimorfismo:** el comportamiento puede variar según el tipo de libro.
+- **Cohesión:** cada clase tiene una responsabilidad clara dentro del sistema.
 
 ---
 
-##  Enlaces del Proyecto
+## Tecnologías utilizadas
 
--  **Diagrama en vivo (Lucidchart / draw.io):** https://app.diagrams.net/#G1DbrF8UaT20-L7SLSYhvbyGCb8Qr-kNjr#%7B%22pageId%22%3A%22P24jo5nsiwFDoYnhvOSi%22%7D 
--  **Video Explicativo (YouTube / Drive):**  https://drive.google.com/file/d/1RNs-FG-1aFJ2R4dwy1Xq6K0Fl36Z6vaL/view 
+- Java
+- Programación Orientada a Objetos
+- UML
+- Visual Studio Code
 
 ---
 
-##  Conclusiones
+## Estructura del proyecto
 
-- Con el desarrollo de este trabajo pudimos comprender de una manera práctica cómo se estructura y organiza la información antes de llevarla a un programa. Al realizar el diagrama UML del sistema de biblioteca, se logró identificar la función de cada clase y entender cómo sus relaciones permiten representar situaciones reales.
-- Es clave destacar la capacidad del diagrama de clases para integrar una mirada sistémica sobre procesos complejos. Este modelado visual facilita profesionalmente la resolución de problemas y la creación de soluciones tecnológicas escalables y mantenibles en el tiempo.
-- Todo este ejercicio demostró el valor práctico de planificar la arquitectura de software y aplicar los principios de diseño (como SOLID) antes de iniciar a escribir las primeras líneas de código. notar como actos tan simples como el de separar la lógica de un proyecto evita enredos técnicos, me hizo entender también que el modelado previo no es un simple trámite, si no la clave para construir un sistema ordenado y escalable en el futuro.
+```text
+Diagrama-clases-biblioteca-grupo11/
+├── README.md
+├── Diagramas/
+│   └── EA1 Planteando el diagrama de clase UML
+├── Documentos/
+├── src/
+│   ├── Main.java
+│   └── modelo/
+│       ├── Autor.java
+│       ├── Libro.java
+│       ├── LibroDigital.java
+│       ├── Prestamo.java
+│       └── Usuario.java
+└── out/
+```
+
+---
+
+## Resultado funcional
+
+El programa principal permite crear un usuario, un autor, libros físicos y digitales, asociar autores y registrar préstamos. La salida por consola evidencia la lógica del sistema y confirma que las relaciones entre clases funcionan de manera coherente.
+
+---
+
+## Conclusión
+
+Este proyecto representa una aplicación práctica de la programación orientada a objetos en un contexto académico real. A través de la modelación de un sistema de biblioteca, se logró comprender cómo las clases interactúan entre sí, cómo se aplican los principios del diseño orientado a objetos y cómo se transforma un problema de dominio en una solución estructurada y funcional.
+
+Además, el proyecto permite evidenciar la importancia del análisis previo y del modelado UML como base para el desarrollo de software robusto, escalable y fácil de mantener.
+
+---
+
+## Integrantes
+
+- Luisa Fernanda García Álvarez
+- Natalia Andrea Amaya García
+- Leandro Marín Parra
+
+## Institución
+
+Institución Universitaria Digital de Antioquia
+
+## Ciudad
+
+Medellín, Antioquia
+
