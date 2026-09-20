@@ -7,7 +7,7 @@ public class Autor {
 
     private String nombre;
     private String nacionalidad;
-    private List<Libro> libros;
+    private final List<Libro> libros;
 
     public Autor(String nombre, String nacionalidad) {
         this.nombre = nombre;
@@ -25,6 +25,14 @@ public class Autor {
 
     public List<Libro> getLibros() {
         return libros;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
     }
 
     public void agregarLibro(Libro libro) {

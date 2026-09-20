@@ -3,12 +3,12 @@ package modelo;
 public class LibroDigital extends Libro {
 
     private String formatoArchivo;
-    private double tamañoMB;
+    private double tamanoMB;
 
-    public LibroDigital(String titulo, String formatoArchivo, double tamañoMB) {
+    public LibroDigital(String titulo, String formatoArchivo, double tamanoMB) {
         super(titulo);
         this.formatoArchivo = formatoArchivo;
-        this.tamañoMB = tamañoMB;
+        this.tamanoMB = tamanoMB;
     }
 
     public String getFormatoArchivo() {
@@ -19,19 +19,19 @@ public class LibroDigital extends Libro {
         this.formatoArchivo = formatoArchivo;
     }
 
-    public double getTamañoMB() {
-        return tamañoMB;
+    public double getTamanoMB() {
+        return tamanoMB;
     }
 
-    public void setTamañoMB(double tamañoMB) {
-        this.tamañoMB = tamañoMB;
+    public void setTamanoMB(double tamanoMB) {
+        this.tamanoMB = tamanoMB;
     }
 
     @Override
     public void prestar() {
         super.prestar();
         System.out.println("Acceso de descarga generado para el libro digital \"" + getTitulo()
-                + "\" (" + formatoArchivo + ", " + tamañoMB + " MB).");
+                + "\" (" + formatoArchivo + ", " + tamanoMB + " MB).");
     }
 
     @Override

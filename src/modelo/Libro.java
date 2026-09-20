@@ -8,7 +8,7 @@ public class Libro {
     private String titulo;
     private boolean disponible;
     private Prestamo prestamo;
-    private List<Autor> autores;
+    private final List<Autor> autores;
 
     public Libro(String titulo) {
         this.titulo = titulo;
