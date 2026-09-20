@@ -33,7 +33,7 @@ Diseñar e implementar en lenguaje Java un sistema de biblioteca orientado a obj
 
 ## Diagrama de Clases UML
 
-![Diagrama UML](Diagramas/EA1.%20Planteando%20el%20diagrama%20de%20clase%20UML.drawio-1.png)
+![Diagrama UML](Diagramas/EA1.%20Planteando%20el%20diagrama%20de%20clase%20UML.drawio.png)
 
 ---
 
@@ -56,7 +56,7 @@ Diseñar e implementar en lenguaje Java un sistema de biblioteca orientado a obj
 Diagrama-clases-biblioteca-grupo11/
 ├── README.md
 ├── Diagramas/
-│   └── EA1 Planteando el diagrama de clase UML.drawio-1.png
+│   └── EA1 Planteando el diagrama de clase UML.drawio.png
 ├── Documentos/
 │   └── EA1_DiagramaClases_Grupo11.pdf
 ├── src/
@@ -68,7 +68,7 @@ Diagrama-clases-biblioteca-grupo11/
 │       ├── Prestamo.java
 │       └── Usuario.java
 └── out/
-
+```
 
 ## Compilación y Ejecución
 
